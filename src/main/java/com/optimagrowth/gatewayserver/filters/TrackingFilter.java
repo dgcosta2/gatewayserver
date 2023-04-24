@@ -27,4 +27,16 @@ public class TrackingFilter implements GlobalFilter{
 
         }
     }
+
+    private boolean isCorrelationIdPresent(HttpHeaders requestHeaders){
+        if(filterUtils.getCorrelationid(requestHeaders)!=null){
+            return true;
+        }
+        else{
+            return false;
+        }
+        private String generateCorrelationId(){
+            return java.util.UUID.randomUUID().toString();
+        }
+    }
 }
